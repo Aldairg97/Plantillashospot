@@ -1,0 +1,85 @@
+Este archivo contiene mensajes de error que se muestran al usuario cuando se usa el inicio de sesión http/https.
+Estos mensajes pueden ser cambiados para hacer la interfaz de usuario más amigable, incluyendo
+traducciones a diferentes idiomas.
+También se pueden usar varias variables aquí. Las más utilizadas son:
+$(error-orig) - mensaje de error original del hotspot
+$(ip) - dirección IP del cliente
+$(username) - nombre de usuario del cliente que intenta iniciar sesión
+error-interno
+Nunca debería ocurrir. Si lo hace, se mostrará una página de error
+mostrando este mensaje de error (error-orig describirá lo que sucedió)
+internal-error = error interno ($(error-orig))
+
+error-de-configuración
+Nunca debería ocurrir si el hotspot está configurado correctamente.
+config-error = error de configuración ($(error-orig))
+
+no-conectado
+Ocurrirá si el usuario solicita la página de estado o de cierre de sesión,
+pero en realidad no ha iniciado sesión
+not-logged-in = No has iniciado sesión (ip $(ip))
+
+ippool-vacío
+La dirección IP del usuario debe ser asignada desde el grupo de IP, pero no hay más
+direcciones en ese grupo
+ippool-empty = no se puede asignar la dirección IP - no hay más direcciones libres en el grupo
+
+apagado
+Cuando se ejecuta el apagado, no se aceptan nuevos clientes
+shutting-down = servicio de hotspot cerrado
+
+límite-sesión-usuario
+Si el perfil de usuario tiene un límite de usuarios compartidos, se mostrará este error
+después de alcanzar ese límite
+user-session-limit = código voucher/usuario está activo $(username)
+
+límite-sesión-licencia
+Dependiendo de la licencia, el número de clientes activos en el hotspot está limitado a
+una u otra cantidad. Si se alcanza este límite, se mostrará el siguiente error.
+license-session-limit = tu código de voucher ha caducado ($(error-orig))
+
+usuario-mac-incorrecto
+Si el nombre de usuario parece una dirección MAC (12:34:56:78:9a:bc), pero no es
+la dirección MAC de este cliente, el inicio de sesión será rechazado
+wrong-mac-username = código voucher/usuario no coincide ($(username)): esta dirección MAC no te pertenece
+
+chap-faltante
+Si se usa el método de inicio de sesión http-chap, pero el programa hotspot no recibe
+la contraseña cifrada de vuelta, se mostrará este mensaje de error.
+Posibles razones del fallo:
+- JavaScript no está habilitado en el navegador web;
+- la página login.html no es válida;
+- el valor del reto ha expirado en el servidor (más de 1 hora de inactividad);
+- el método de inicio de sesión http-chap ha sido recientemente eliminado;
+Si JavaScript está habilitado y la página login.html es válida,
+intentar iniciar sesión nuevamente generalmente soluciona el problema.
+chap-missing = el navegador web no envió la respuesta del reto (intenta nuevamente, habilita JavaScript)
+
+nombre-usuario-invalido
+El caso más general de nombre de usuario o contraseña inválidos. Si el servidor RADIUS
+ha enviado un mensaje de error con el mensaje Access-Reject, entonces sobrescribirá
+esta configuración.
+invalid-username = código voucher/usuario incorrecto, ingresa nuevamente correctamente.
+
+mac-inválida
+Los usuarios locales (en el servidor hotspot) pueden estar vinculados a una dirección MAC específica. Si se intenta iniciar sesión
+desde una MAC diferente, se mostrará este mensaje de error.
+invalid-mac = código voucher/usuario $(username) no puede ser activado desde esta dirección MAC
+
+límite-tiempo, límite-tráfico
+Para los usuarios locales de hotspot en caso de que se alcancen los límites
+uptime-limit = código voucher/usuario $(username) ha alcanzado el límite de tiempo traffic-limit = código voucher/usuario $(username) ha alcanzado el límite de cuota
+
+timeout-radius
+El usuario es autenticado por el servidor RADIUS, pero no se recibe respuesta de él,
+se mostrará el siguiente error.
+radius-timeout = el servidor RADIUS no respondió
+
+auth-en-progreso
+Autorización en progreso. El cliente ya ha emitido una solicitud de autorización
+que aún no está completa.
+auth-in-progress = ya está activado, intenta nuevamente más tarde
+
+respuesta-radius
+El servidor Radius devolvió algún mensaje de error personalizado
+radius-reply = $(error-orig)
