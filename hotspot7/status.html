@@ -67,7 +67,7 @@ $(if login-by-mac != 'yes')
 <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
 <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
 <!-- end of user manager link -->
-<button class="button2" type="submit"><i class="icon icon-logout">&#xe804;</i> Cerrar sesión</button>
+<button class="button2" type="submit"><i class="icon icon-logout">&#xe804;</i> Cerrar sesiï¿½n</button>
 $(endif)
 </form>
 </div>
@@ -76,8 +76,8 @@ $(endif)
     document.getElementById('title').innerHTML = window.location.hostname + " > Estado";
 //get vaidity
     var usr = document.getElementById('user').innerHTML
-    var url = "https://demo.mikhmon.online/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
-    var SessionName = "demo"
+    var url = "http://192.168.56.1/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
+    var SessionName = "InternetItza"
     var getvalid = url+usr+"&session="+SessionName
     document.getElementById('exp').src = getvalid;
         
