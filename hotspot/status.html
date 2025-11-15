@@ -76,8 +76,8 @@ $(endif)
     document.getElementById('title').innerHTML = window.location.hostname + " > Estado";
 //get vaidity
     var usr = document.getElementById('user').innerHTML
-    var url = "http://192.168.56.1/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
-    var SessionName = "InternetItza"
+    var url = "http://169.254.119.121/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
+    var SessionName = "minimarket"
     var getvalid = url+usr+"&session="+SessionName
     document.getElementById('exp').src = getvalid;
         
