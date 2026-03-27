@@ -2,7 +2,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>Kemangi 41 > login</title>
+<title>Kemangi 41 > iniciar sesión</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="pragma" content="no-cache" />
@@ -17,22 +17,22 @@
 	<tr>
 		<td align="center"><img src="img/logo.png" alt="kemangi 41" style="border-radius: 5px" alt="sponsor" height="100%" width="200"/></td>
 	</tr>
-		<td><div style="color: white; font-size: 14px; text-align: center;">Langganan WiFi Hub: WA 0822</div></td>
+		<td><div style="color: white; font-size: 14px; text-align: center;">Suscripción WiFi Contacto: WA 0822</div></td>
 	</tr>
 </table>
 <div class="main">
 <table align="center">
 	<tr>
 		<td>
-<!--			<div class?"notice" style="font-size: 14px; padding-top:5px; text-align:center; color:red;">Mohon maaf Internet Telkom dalam perbaikan, jadi koneksi kadang terputus.</div>-->
-			<div class?"notice" style="font-size: 14px; padding-top:5px; text-align:center;">Voucher wifi Kemangi 41 bisa didapatkan di</div>
-			<!--<div class?"notice" style="font-size: 14px; text-align:center;">Masa Aktif Voucher  <a href="./detail.html">Klik Disini</a></div><br />-->
+<!--			<div class?"notice" style="font-size: 14px; padding-top:5px; text-align:center; color:red;">Disculpe, el Internet de Telkom está en mantenimiento, por lo que la conexión a veces se interrumpe.</div>-->
+			<div class?"notice" style="font-size: 14px; padding-top:5px; text-align:center;">El voucher de wifi Kemangi 41 se puede conseguir en</div>
+			<!--<div class?"notice" style="font-size: 14px; text-align:center;">Periodo de validez del voucher <a href="./detail.html">Haga clic aquí</a></div><br />-->
 		</td>
 	</tr>
 </table>
 <div class="tab">
-	<button class="tablinks" onclick="openLogin(event, 'KV')" id="defaultOpen">Kode Voucher</button>
-	<button class="tablinks" onclick="openLogin(event, 'UP')">User Password</button>
+	<button class="tablinks" onclick="openLogin(event, 'KV')" id="defaultOpen">Código de Voucher</button>
+	<button class="tablinks" onclick="openLogin(event, 'UP')">Usuario y Contraseña</button>
 </div>
 
 <div id="KV" class="tabcontent">
@@ -60,7 +60,7 @@ $(endif)
 <table width="100%">
 	<table align="center">
 		<tr>
-		<td style="font-size: 14px; text-align:center;">Login Kode Voucher<br />$(if trial == 'yes')Coba gratis, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">klik disini</a>.$(endif)</td><br />
+		<td style="font-size: 14px; text-align:center;">Iniciar sesión con Código de Voucher<br />$(if trial == 'yes')Prueba gratis, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">haga clic aquí</a>.$(endif)</td><br />
 		</tr>
 	</table>
 	<table align="center"class="tlogin">
@@ -75,14 +75,14 @@ $(endif)
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
-							<td colspan=2><input  name="usernamekv" type="text" placeholder="Kode Voucher"  onchange="updateInput(this.value)" value="$(username)"/></td>
+							<td colspan=2><input  name="usernamekv" type="text" placeholder="Código de Voucher"  onchange="updateInput(this.value)" value="$(username)"/></td>
 						</tr>
 						<tr>
-						  <td colspan=2><input id="pass" name="passwordkv" placeholder="Password" type="hidden"/></td>
+						  <td colspan=2><input id="pass" name="passwordkv" placeholder="Contraseña" type="hidden"/></td>
 						</tr>
-						<td colspan=2 align="center";><input type="submit" class="button" value=" Login | Masuk" /></td>
+						<td colspan=2 align="center";><input type="submit" class="button" value=" Iniciar Sesión | Entrar" /></td>
 					</tr>
-					$(if error)<br /><div style="color: red; font-size: 14px">kode voucher tidak sesuai atau sudah dipakai!</div>$(endif)
+					$(if error)<br /><div style="color: red; font-size: 14px">¡el código del voucher no es válido o ya ha sido utilizado!</div>$(endif)
 					</table>
 			</form>
 		</td>
@@ -114,7 +114,7 @@ $(endif)
 <table width="100%">
 	<table align="center">
 		<tr>
-		<td style="font-size: 14px; text-align:center;">Login Username & Password<br />$(if trial == 'yes')Coba gratis, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">klik disini</a>.$(endif)</td><br />
+		<td style="font-size: 14px; text-align:center;">Iniciar sesión con Usuario y Contraseña<br />$(if trial == 'yes')Prueba gratis, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">haga clic aquí</a>.$(endif)</td><br />
 		</tr>
 	</table>
 	<table align="center"class="tlogin">
@@ -129,13 +129,13 @@ $(endif)
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
-							<td colspan=2><input  name="usernameup" type="text" placeholder="Username" value="$(username)"/></td>
+							<td colspan=2><input  name="usernameup" type="text" placeholder="Usuario" value="$(username)"/></td>
 						</tr>
 						<tr>
-							<td colspan=2><input  name="passwordup" type="password" placeholder="Password"/></td>
+							<td colspan=2><input  name="passwordup" type="password" placeholder="Contraseña"/></td>
 						</tr>
 					<tr>
-						<td colspan=2 align="center";><input type="submit" class="button" value=" Login " /></td>
+						<td colspan=2 align="center";><input type="submit" class="button" value=" Iniciar Sesión " /></td>
 					</tr>
 					$(if error)<br /><div style="color: red; font-size: 14px">$(error)</div>$(endif)
 					</table>
@@ -166,15 +166,15 @@ document.getElementById("defaultOpen").click();
 </script>
 <div class="content">
 	<table id="paketwifi" align="center" class="tpaketwifi">
-		<div style="padding-top: 10px; padding-bottom:5px; font-size: 14px; font-weight: bold; text-align: center;">Daftar Paket Wifi</div>
+		<div style="padding-top: 10px; padding-bottom:5px; font-size: 14px; font-weight: bold; text-align: center;">Lista de Paquetes Wifi</div>
 	</table>
 	<br>
 </div>
 	<table align="center">
 		<tr>
 			<td align="center">
-				<br /><div style="font-size: 14px; color: white;">Alamat : Tanah Merah 4 Gang Kemangi No 41</div>
-				<br /><div style="font-size: 14px; color: white;">Powered by</div>
+				<br /><div style="font-size: 14px; color: white;">Dirección : Tanah Merah 4 Gang Kemangi No 41</div>
+				<br /><div style="font-size: 14px; color: white;">Desarrollado por</div>
 				<br /><img src="img/sponsor.png"  style="border-radius: 5px" alt="sponsor" height="175" width="300">
 			</td>
 		</tr>

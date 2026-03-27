@@ -7,10 +7,77 @@
     <meta name="theme-color" content="#1FA2FF" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .ad-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+        }
 
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        #ad-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        #skip-ad-button {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        @media (max-width: 600px) {
+            #skip-ad-button {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div id="ad-modal" class="ad-modal">
+        <div class="video-container">
+            <video id="ad-video" autoplay muted playsinline>
+                <source src="anuncio.mp4" type="video/mp4">
+                Su navegador no soporta la etiqueta de vídeo.
+            </video>
+        </div>
+        <button id="skip-ad-button">Saltar Anuncio</button>
+    </div>
+
   <div class="bg">
     
         $(if chap-id)
@@ -58,7 +125,7 @@
             </form>
 
             $(if trial == 'yes')
-            <div class="box">Internet Gratis <a style="text-decoration: underline; color:#000;" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">haga clic en aquí</a></div>
+            <div class="box">Internet Gratis <a style="text-decoration: underline; color:#000;" href="#" onclick="showAdModal(); return false;">haga clic en aquí</a></div>
             $(endif)
                 <br />
             <div>
@@ -89,7 +156,22 @@ var config = {
 
 }
 
-var _0x6b60=["\x69\x6E\x66\x6F\x6C\x6F\x67\x69\x6E","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x6C\x6F\x67\x69\x6E\x76\x63","\x6D\x69\x6B\x68\x6D\x6F\x6E","\x75\x73\x65\x72\x6E\x61\x6D\x65","\x6C\x6F\x67\x69\x6E","\x70\x61\x73\x73\x77\x6F\x72\x64","\x70\x6C\x61\x63\x65\x68\x6F\x6C\x64\x65\x72","\x76\x6F\x75\x63\x68\x65\x72\x43\x6F\x64\x65","\x76\x61\x6C\x75\x65","\x73\x65\x74\x43\x61\x73\x65","\x6C\x6F\x77\x65\x72\x63\x61\x73\x65","\x74\x6F\x4C\x6F\x77\x65\x72\x43\x61\x73\x65","\x75\x70\x70\x65\x72\x63\x61\x73\x65","\x74\x6F\x55\x70\x70\x65\x72\x43\x61\x73\x65","\x6F\x6E\x6B\x65\x79\x75\x70","\x66\x6F\x63\x75\x73","\x74\x79\x70\x65","\x68\x69\x64\x64\x65\x6E","\x55\x73\x65\x72\x6E\x61\x6D\x65","\x6C\x6F\x67\x69\x6E\x75\x70","\x64\x65\x66\x61\x75\x6C\x74\x4D\x6F\x64\x65","\x6D\x65\x6D\x62\x65\x72","\x6F\x6E\x6C\x6F\x61\x64","\x4D\x69\x6B\x68\x6D\x6F\x6E","\x4D\x49\x4B\x48\x4D\x4F\x4E","\x3C\x63\x65\x6E\x74\x65\x72\x3E\x3C\x68\x32\x20\x73\x74\x79\x6C\x65\x3D\x27\x63\x6F\x6C\x6F\x72\x3A\x72\x65\x64\x27\x3E\x4A\x61\x6E\x67\x61\x6E\x20\x61\x73\x61\x6C\x20\x65\x64\x69\x74\x20\x62\x6F\x73\x6B\x75\x2C\x3C\x62\x72\x3E\x62\x61\x63\x61\x20\x6C\x69\x73\x65\x6E\x73\x69\x6E\x79\x61\x20\x6C\x61\x67\x69\x21\x20\x3C\x2F\x68\x33\x3E\x3C\x2F\x63\x65\x6E\x74\x65\x72\x3E","\x77\x72\x69\x74\x65","\x5B\x69\x64\x5E\x3D","\x5D","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72\x41\x6C\x6C","\x6C\x65\x6E\x67\x74\x68","\x64\x69\x73\x70\x6C\x61\x79","\x73\x74\x79\x6C\x65","\x62\x6C\x6F\x63\x6B","\x63\x6F\x6C\x6F\x72","\x23\x30\x30\x30","\x79\x61\x72\x6B"];var infologin=document[_0x6b60[1]](_0x6b60[0]);infologin[_0x6b60[2]]= config[_0x6b60[3]];var mikhmon=document[_0x6b60[1]](_0x6b60[4])[_0x6b60[2]];var username=document[_0x6b60[6]][_0x6b60[5]];var password=document[_0x6b60[6]][_0x6b60[7]];username[_0x6b60[8]]= config[_0x6b60[9]];function setpass(){var _0xe3ccx6=username[_0x6b60[10]];if(config[_0x6b60[11]]== _0x6b60[12]){userlc= _0xe3ccx6[_0x6b60[13]]();username[_0x6b60[10]]= userlc;password[_0x6b60[10]]= userlc}else {if(config[_0x6b60[11]]== _0x6b60[14]){useruc= _0xe3ccx6[_0x6b60[15]]();username[_0x6b60[10]]= useruc;password[_0x6b60[10]]= useruc}else {username[_0x6b60[10]]= _0xe3ccx6;password[_0x6b60[10]]= _0xe3ccx6}}}function setuplowmem(){var _0xe3ccx6=username[_0x6b60[10]];if(config[_0x6b60[11]]== _0x6b60[12]){userlc= _0xe3ccx6[_0x6b60[13]]();username[_0x6b60[10]]= userlc}else {if(config[_0x6b60[11]]== _0x6b60[14]){useruc= _0xe3ccx6[_0x6b60[15]]();username[_0x6b60[10]]= useruc}else {username[_0x6b60[10]]= _0xe3ccx6}}}username[_0x6b60[16]]= setpass;var yark=mikhmon;function voucher(){username[_0x6b60[17]]();username[_0x6b60[16]]= setpass;username[_0x6b60[8]]= config[_0x6b60[9]];password[_0x6b60[18]]= _0x6b60[19];infologin[_0x6b60[2]]= config[_0x6b60[3]]}function member(){username[_0x6b60[17]]();username[_0x6b60[16]]= setuplowmem;username[_0x6b60[8]]= _0x6b60[20];password[_0x6b60[18]]= _0x6b60[7];infologin[_0x6b60[2]]= config[_0x6b60[21]]}if(config[_0x6b60[22]]== _0x6b60[23]){window[_0x6b60[24]]= member()};if(yark== _0x6b60[25]|| yark== _0x6b60[4]|| yark== _0x6b60[26]){}else {document[_0x6b60[28]](_0x6b60[27])};function Id(_0xe3ccxc){var _0xe3ccxd;var _0xe3ccxe=document[_0x6b60[31]](_0x6b60[29]+ _0xe3ccxc+ _0x6b60[30]);if(_0xe3ccxe){for(_0xe3ccxd= 0;_0xe3ccxd< (_0xe3ccxe[_0x6b60[32]]);_0xe3ccxd++){_0xe3ccxe[_0xe3ccxd][_0x6b60[34]][_0x6b60[33]]= _0x6b60[35];_0xe3ccxe[_0xe3ccxd][_0x6b60[34]][_0x6b60[36]]= _0x6b60[37]}}}Id(_0x6b60[38])
+        function showAdModal() {
+            document.getElementById('ad-modal').style.display = 'block';
+            document.getElementById('ad-video').play();
+
+            setTimeout(function() {
+                document.getElementById('skip-ad-button').style.display = 'block';
+            }, 300000);
+        }
+
+        function redirectToLogin() {
+            window.location.href = "$(link-login-only)?dst=$(link-orig-esc)&username=T-$(mac-esc)";
+        }
+
+        document.getElementById('skip-ad-button').addEventListener('click', redirectToLogin);
+        document.getElementById('ad-video').addEventListener('ended', redirectToLogin);
+        document.getElementById('ad-video').addEventListener('error', redirectToLogin);
 
 
 </script>
